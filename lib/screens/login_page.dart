@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/screens/otp_page.dart';
 import 'package:miniproject/screens/register_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 class login extends StatefulWidget {
   const login({super.key});
 
@@ -10,6 +11,31 @@ class login extends StatefulWidget {
 
 class _loginState extends State<login> {
   final _formkey=GlobalKey<FormState>();
+  final Uri _url = Uri.parse('https://www.google.com/');
+
+  //HTTPS screen
+  Future<void> _googleUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
+  final Uri _face = Uri.parse('https://en-gb.facebook.com/');
+
+  //HTTPS screen
+  Future<void> _facebookUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
+  final Uri _twit = Uri.parse('https://en-gb.facebook.com/');
+
+  //HTTPS screen
+  Future<void> _twiterurl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +116,12 @@ class _loginState extends State<login> {
 
 
 
-    }, child: Text("Login",style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal,color: Color.fromRGBO(255,255,255,1)),)),
+    }, child: Text("Login",style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal,color: Color.fromRGBO(255,255,255,3)),),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue
+                ),
+
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -103,14 +134,29 @@ class _loginState extends State<login> {
                 children: [
                   SizedBox(
                       width: 40,
-                      child: Image.asset("assets/images/google.png"),
+
+                      child: InkWell(
+                          onTap: (){
+                            _googleUrl();
+
+                          },
+
+                          child: Image.asset("assets/images/google.png")
+
+                      ),
+
                   ),
                   SizedBox(
                     width: 8,
                   ),
                   SizedBox(
                       width: 40,
-                      child: Image.asset("assets/images/facebook.png"),
+                      child: InkWell(
+                          onTap: (){
+                            _facebookUrl();
+                          },
+
+                          child: Image.asset("assets/images/facebook.png")),
                   ),
                   SizedBox(
                     width: 8,
@@ -120,7 +166,14 @@ class _loginState extends State<login> {
                   ),
                   SizedBox(
                       width: 40,
-                      child: Image.asset("assets/images/twiter.png"),
+                      child: InkWell(
+                          onTap: (){
+                            _twiterurl();
+
+
+                          },
+
+                          child: Image.asset("assets/images/twiter.png")),
                   ),
                   SizedBox(
                     width: 8,

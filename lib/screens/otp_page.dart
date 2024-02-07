@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:lottie/lottie.dart';
 import 'package:miniproject/screens/Home_page.dart';
 import 'package:miniproject/screens/bottmnav.dart';
 
@@ -20,13 +21,17 @@ class _OtpState extends State<Otp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            Image.asset("assets/images/otpimg.jpg"),
+            Container(
+                height: 300,
+                width: double.infinity,
+                child: Lottie.asset("assets/anm/anime1.json")),
+
             SizedBox(
-              height: 80,
+              height: 10,
             ),
-            Text("otp has been send to this number 8794561235",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+            Text("otp has been send to this number 7994691027",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
             SizedBox(
-              height: 50,
+              height: 10  ,
             ),
             OtpTextField(
           numberOfFields: 6,
@@ -35,7 +40,6 @@ class _OtpState extends State<Otp> {
               borderWidth: 2,
               showFieldAsBox: true,
               onCodeChanged: (String code) {
-
               },
               onSubmit: (String verficationcode){
              setState(() {
@@ -44,10 +48,12 @@ class _OtpState extends State<Otp> {
               },
             ),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             SizedBox(
-                height: 35,
+                height: 30,
+                width: 130,
+
                 child: ElevatedButton(onPressed: (){
                   Navigator.push(
                     context,
@@ -55,7 +61,11 @@ class _OtpState extends State<Otp> {
                   );
 
 
-                }, child: Text("Continue"))),
+                }, child: Text("Continue",style: TextStyle(color: Colors.white),),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent
+                ),
+                ),),
           ],
         ),
       ),

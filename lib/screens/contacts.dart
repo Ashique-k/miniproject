@@ -14,10 +14,10 @@ class _contactState extends State<contact> {
       body: Container(
         child: ListView.separated(
             separatorBuilder: (context,index)=>Divider(
-              indent: 13,
-              endIndent: 60,
+              indent: 15,
+              endIndent: 40,
               color:Colors.blue ,
-              thickness: 3,
+              thickness: 2,
               height: 5,
             ),
             itemCount: 10,
@@ -26,10 +26,10 @@ class _contactState extends State<contact> {
                 ListTile(
                   leading: CircleAvatar(
                       backgroundImage: ExactAssetImage(
-                          "assets/images/person.png"),
+                          "assets/images/Zayn.jpg"),
                   ),
-                  title: Text("Contacts"),
-                  subtitle: Text("000000"),
+                  title: Text("Delivery Contact"),
+                  subtitle: Text("45869873"),
                   trailing: Icon(Icons.add_comment_sharp),
                 );
             }

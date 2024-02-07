@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/screens/Home_page.dart';
+import 'package:miniproject/screens/detail_page.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
+
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -12,8 +16,12 @@ class _ProfileState extends State<Profile> {
   final formkey = GlobalKey<FormState>();
   final SnackBar _snackBar=SnackBar(
     content: Text("Updated"), duration: Duration(seconds: 4),);
+  final namectrl = TextEditingController();
+  final emailctrl = TextEditingController();
+  final phnctrl = TextEditingController();
 
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -50,6 +58,7 @@ class _ProfileState extends State<Profile> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: namectrl,
                   validator: (value) {
                     if (value == null || value.isEmpty) {   // Validation Logic
                       return 'Please enter your name';
@@ -69,6 +78,7 @@ class _ProfileState extends State<Profile> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: emailctrl,
                   validator: (value) {
                     if (value == null || value.isEmpty) {   // Validation Logic
                       return 'Please enter your Mail ID';
@@ -88,6 +98,7 @@ class _ProfileState extends State<Profile> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: phnctrl,
                   validator: (value) {
                     if (value == null || value.isEmpty) {   // Validation Logic
                       return 'Please Enter Ph No';
@@ -111,26 +122,31 @@ class _ProfileState extends State<Profile> {
               SizedBox(
                 height: 45,
                 width: 300,
-                child: ElevatedButton(onPressed: (){
+                child: ElevatedButton(onPressed: ()async{
+                  final  prefs = await SharedPreferences.getInstance();
+                  await  prefs.setString("name", namectrl.text);
+                  await prefs.setString("email", emailctrl.text);
+                  await prefs.setString("phone no", phnctrl.text);
 
-                  // showDialog(context: context,
-                  //     builder: (BuildContext context)=>
-                  //         AlertDialog(
-                  //           title: Text("Conformation"),
-                  //           content: Text("Are you confirm"),
-                  //           actions: [
-                  //             TextButton(onPressed: () {
-                  //               Navigator.pop(context,"cancel");
-                  //             }, child: Text("Cancel")),
-                  //             TextButton(onPressed: () {
-                  //               Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Home()));
-                  //             }, child: Text("Ok")),
-                  //
-                  //           ],
-                  //         )
-                  //         );
+
+                  showDialog(context: context,
+                      builder: (BuildContext context)=>
+                          AlertDialog(
+                            title: Text("Conformation"),
+                            content: Text("Are you confirm"),
+                            actions: [
+                              TextButton(onPressed: () {
+                                Navigator.pop(context,"cancel");
+                              }, child: Text("Cancel")),
+                              TextButton(onPressed: () {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Home()));
+                              }, child: Text("Ok")),
+
+                            ],
+                          )
+                          );
                   if(formkey.currentState!.validate()){
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Home()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Details()));
                     ScaffoldMessenger.of(context).showSnackBar(_snackBar);
                   }
                   else{
@@ -144,7 +160,7 @@ class _ProfileState extends State<Profile> {
                                   Navigator.pop(context,"cancel");
                                 }, child: Text("Cancel")),
                                 TextButton(onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Home()));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Details()));
                                 }, child: Text("Ok")),
 
                               ],

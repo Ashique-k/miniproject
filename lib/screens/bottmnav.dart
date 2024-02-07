@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:miniproject/screens/Home_page.dart';
 import 'package:miniproject/screens/homesub1.dart';
 
-import '../profiles.dart';
+import '../google.dart';
 import 'contacts.dart';
 
 class Bot extends StatefulWidget {
@@ -16,7 +16,7 @@ class Bot extends StatefulWidget {
 class _BotState extends State<Bot> {
   int currentTabIndex =0;
 
-  late List<Widget>Home_page=[const Home(),const image_page(),const contact(),const jkjl(),];
+  late List<Widget>Home_page=[const Home(),const image_page(),const contact(),const Map_page(),];
   void updateIndex(int newindex){
     setState(() {
       currentTabIndex=newindex;
@@ -37,7 +37,7 @@ class _BotState extends State<Bot> {
 
 
 
-              items: [Icon(Icons.home),Icon(Icons.image),Icon(Icons.contact_page),Icon(Icons.settings)],
+              items: [Icon(Icons.home),Icon(Icons.image),Icon(Icons.contact_page),Icon(Icons.location_on)],
           onTap: (index){
                 updateIndex(index);
 

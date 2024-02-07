@@ -39,6 +39,12 @@ dependencies:
   image_picker: ^1.0.7
   carousel_slider: ^4.2.1
   curved_navigation_bar: ^1.0.3
+  url_launcher: ^6.2.4
+  shared_preferences: ^2.2.2
+  google_maps_flutter: ^2.5.3
+  flutter_polyline_points: ^2.0.0
+  location: ^5.0.3
+  lottie: ^3.0.0
   intl:
 
 
@@ -59,21 +65,35 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/images/shoping.jpg
-    - assets/images/log.jpg
-    - assets/images/google.png
-    - assets/images/facebook.png
-    - assets/images/twiter.png
-    - assets/images/otpimg.jpg
-    - assets/images/Zayn.jpg
-    - assets/images/shoes.jpg
-    - assets/images/phone.jpg
-    - assets/images/person.png
-    - assets/images/dis20.png
-    - assets/images/heart.png
-    - assets/images/headphones.jpg
-    - assets/images/eye.jpg
-    - assets/images/laptop.jpg
+     - assets/images/
+     - assets/anm/
+#    - assets/images/shoping.jpg
+#    - assets/images/log.jpg
+#    - assets/images/google.png
+#    - assets/images/facebook.png
+#    - assets/images/twiter.png
+#    - assets/images/otpimg.jpg
+#    - assets/images/Zayn.jpg
+#    - assets/images/shoes.jpg
+#    - assets/images/phone.jpg
+#    - assets/images/person.png
+#    - assets/images/dis20.png
+#    - assets/images/heart.png
+#    - assets/images/headphones.jpg
+#    - assets/images/eye.jpg
+#    - assets/images/laptop.jpg
+#    - assets/images/cargo.jpg
+#    - assets/images/dior.jpg
+#    - assets/images/mok.jpg
+##    - assets/images/perfumes.avif
+#    - assets/images/shoe.jpg
+#    - assets/images/watches.webp
+#    - assets/images/jacket.jpg
+#    - assets/images/sale.jpg
+#    - assets/images/big.jpg
+#    - assets/images/locking.jpg
+#    - assets/images/arrow.png
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
