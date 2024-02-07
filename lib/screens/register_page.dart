@@ -202,6 +202,7 @@ class _RegtrState extends State<Regtr> {
                   height: 35,
                 ),
 
+
                 CheckboxListTile(
                   checkColor: Colors.blue,
                   activeColor: Colors.white,

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:miniproject/main.dart';
 import 'package:miniproject/screens/login_page.dart';
 class splash_scrn extends StatefulWidget {
@@ -14,7 +15,7 @@ class _splash_scrnState extends State<splash_scrn> {
   @override
   void initState(){
     super.initState();
-    Timer(Duration(seconds: 3),(){
+    Timer(Duration(seconds: 5),(){
       Navigator.pushReplacement(
 
         context,  MaterialPageRoute(builder: (context) => login()),
@@ -27,8 +28,9 @@ class _splash_scrnState extends State<splash_scrn> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
-        child: Image.asset("assets/images/shoping.jpg"),
+        child: Lottie.asset("assets/images/cart1.json")
       )
 
     );
